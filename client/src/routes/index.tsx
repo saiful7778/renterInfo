@@ -217,8 +217,8 @@ function Index() {
           <Button type="submit">Print / Download</Button>
         </div>
         <Accordion type="multiple" className="my-4">
-          <div className="flex gap-4 flex-wrap">
-            <div className="w-full max-w-sm">
+          <div className="flex gap-4 flex-wrap justify-between">
+            <div className="w-full max-w-xs md:max-w-sm">
               <Reservation control={form.control} loading={loading} />
               <Vehicle
                 control={form.control}
@@ -230,11 +230,11 @@ function Index() {
                   .map((ele) => `${ele.make}, ${ele.model}`)}
               />
             </div>
-            <div className="w-full max-w-sm">
+            <div className="w-full max-w-xs md:max-w-sm">
               <Customer control={form.control} loading={loading} />
               <Additional features={selectedVehicle.features} />
             </div>
-            <div className="w-full max-w-sm">
+            <div className="w-full max-w-xs md:max-w-sm">
               <Charges rates={selectedVehicle.rates} total={total} />
               {selectedVehicle && (
                 <img
