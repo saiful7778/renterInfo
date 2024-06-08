@@ -1,12 +1,12 @@
 import { FC } from "react";
 import InputCard from "@/components/InputCard";
 import Form from "@/components/ui/form";
-import { InputCardProps } from "@/routes";
-import useQueryParams from "@/hooks/useQueryParams";
+import { InputCardProps } from "@/pages/ReservationForm";
 import InputField from "../InputField";
+import useReservationQueryParams from "@/hooks/useReservationQueryParams";
 
 const Reservation: FC<InputCardProps> = ({ control, loading }) => {
-  const queryParams = useQueryParams();
+  const { handleQueryParams } = useReservationQueryParams();
   return (
     <InputCard title="Reservation Details">
       <Form.field
@@ -17,13 +17,9 @@ const Reservation: FC<InputCardProps> = ({ control, loading }) => {
             type="text"
             label="Reservation ID"
             placeholder="Reservation Id"
-            {...field}
-            onChange={(e) => {
-              queryParams("reservationId", e.target.value);
-              field.onChange(e);
-            }}
-            disabled={loading}
+            disabled={true}
             required
+            {...field}
           />
         )}
       />
@@ -37,7 +33,7 @@ const Reservation: FC<InputCardProps> = ({ control, loading }) => {
             label="Pickup Date"
             {...field}
             onChange={(e) => {
-              queryParams("pickupDate", e.target.value);
+              handleQueryParams("pickupDate", e.target.value);
               field.onChange(e);
             }}
             disabled={loading}
@@ -55,7 +51,7 @@ const Reservation: FC<InputCardProps> = ({ control, loading }) => {
             label="Return Date"
             {...field}
             onChange={(e) => {
-              queryParams("returnDate", e.target.value);
+              handleQueryParams("returnDate", e.target.value);
               field.onChange(e);
             }}
             disabled={loading}
