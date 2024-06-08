@@ -7,7 +7,7 @@ interface ChargesProps {
     daily: number;
     hourly: number;
     weekly: number;
-  };
+  } | null;
   total?: number;
 }
 
