@@ -2,7 +2,7 @@ import { FC } from "react";
 import InputCard from "@/components/InputCard";
 
 interface AdditionalProps {
-  features?: string[];
+  features?: string[] | null;
 }
 
 const Additional: FC<AdditionalProps> = ({ features }) => {
