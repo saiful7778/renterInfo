@@ -16,9 +16,9 @@ export const reservationSchema = z.object({
     .refine((val) => !isNaN(new Date(val).getTime()), {
       message: "Invalid date and time",
     }),
+  duration: z.number({ required_error: "Duration is required" }),
   durationDisplay: z.string({ required_error: "Duration is required" }),
-  duration: z.string({ required_error: "Duration is required" }),
-  discount: z.string().optional(),
+  discount: z.number().optional(),
   vehicleType: z
     .string({ required_error: "Vehicle Type is required" })
     .min(1, "Vehicle Type is required"),
