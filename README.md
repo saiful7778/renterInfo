@@ -37,7 +37,7 @@ To get started with this project, follow these steps:
 
    ```bash
    git clone https://github.com/saiful7778/renterInfo.git
-   cd uifry
+   cd renterInfo
    ```
 
 2. **Install dependencies:**
