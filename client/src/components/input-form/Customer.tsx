@@ -1,12 +1,12 @@
 import { FC } from "react";
 import InputCard from "@/components/InputCard";
-import { InputCardProps } from "@/routes";
+import { InputCardProps } from "@/pages/ReservationForm";
 import Form from "@/components/ui/form";
 import InputField from "@/components/InputField";
-import useQueryParams from "@/hooks/useQueryParams";
+import useReservationQueryParams from "@/hooks/useReservationQueryParams";
 
 const Customer: FC<InputCardProps> = ({ control, loading }) => {
-  const queryParams = useQueryParams();
+  const { handleQueryParams } = useReservationQueryParams();
   return (
     <InputCard title="Customer Information">
       <Form.field
@@ -19,7 +19,7 @@ const Customer: FC<InputCardProps> = ({ control, loading }) => {
             placeholder="First name"
             {...field}
             onChange={(e) => {
-              queryParams("firstName", e.target.value);
+              handleQueryParams("firstName", e.target.value);
               field.onChange(e);
             }}
             disabled={loading}
@@ -37,7 +37,7 @@ const Customer: FC<InputCardProps> = ({ control, loading }) => {
             placeholder="Last name"
             {...field}
             onChange={(e) => {
-              queryParams("lastName", e.target.value);
+              handleQueryParams("lastName", e.target.value);
               field.onChange(e);
             }}
             disabled={loading}
@@ -55,7 +55,7 @@ const Customer: FC<InputCardProps> = ({ control, loading }) => {
             placeholder="Email address"
             {...field}
             onChange={(e) => {
-              queryParams("email", e.target.value);
+              handleQueryParams("email", e.target.value);
               field.onChange(e);
             }}
             disabled={loading}
@@ -73,7 +73,7 @@ const Customer: FC<InputCardProps> = ({ control, loading }) => {
             placeholder="Phone number"
             {...field}
             onChange={(e) => {
-              queryParams("phone", e.target.value);
+              handleQueryParams("phone", e.target.value);
               field.onChange(e);
             }}
             disabled={loading}
